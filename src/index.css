@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h-flex{
+	@apply flex items-center gap-2
+}
+
+.v-flex{
+	@apply flex flex-col items-center gap-2
+}
+
+::selection{
+	@apply bg-color-100
+}
+
+.disabled-button{
+	@apply bg-gray-200 text-gray-400
+}
