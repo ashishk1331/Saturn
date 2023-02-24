@@ -1,12 +1,9 @@
 import Card from './components/Card'
 import Toast from './components/Toast'
-import { Shuffle } from 'iconoir-react'
+import Modal from './components/Modal'
+import { Shuffle, Lock } from 'iconoir-react'
 import { getList, fetchFont, randomFont } from './util/useFont.js'
 import { useState, useEffect, useRef } from 'react'
-
-function cn(...classes){
-    return classes.filter(Boolean).join(' ')
-}
 
 export default function App(props){
 
@@ -55,16 +52,25 @@ export default function App(props){
             <Card ref={upper} {...fontOne} lock={lockOne} setLock={setLockOne} isLoading={isLoading}/>
             <Card ref={lower} {...fontTwo} lock={lockTwo} setLock={setLockTwo} isLoading={isLoading}/>
             <button 
-                className={cn("absolute top-1/2 -translate-y-[50%] md:left-1/2 md:-translate-x-[50%] bg-color-100 h-flex p-3 px-6 text-lg font-medium text-color-500 rounded-full", isLoading ? 'disabled-button' : '')}
+                className="absolute top-1/2 -translate-y-[50%] md:left-1/2 md:-translate-x-[50%] bg-color-100 h-flex p-3 px-6 text-lg font-medium text-color-500 rounded-full"
                 onClick={() => {
                     if(!isLoading){
                         shuffle(fonts)
                     }
                 }}
             >
-                <Shuffle />
-                Shuffle
+            {
+                !isLoading ?
+                <>
+                    <Shuffle />
+                    Shuffle
+                </>
+                :
+                <Lock />
+            }
             </button>
+
+            <Modal />
         </div>
     )
 }

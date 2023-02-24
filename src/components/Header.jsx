@@ -1,4 +1,4 @@
-import { Lock, NoLock } from 'iconoir-react'
+import { Lock, NoLock, Enlarge } from 'iconoir-react'
 
 function cn(...classes){
 	return classes.filter(Boolean).join(' ')
@@ -12,8 +12,13 @@ export default function Header(props){
 				<h1 className="text-2xl w-full">{props.id || 'font name'}</h1>
 				<p className="text-sm w-fit mr-auto">{props.family || 'font family'}</p>
 			</div>
-			<button 
+			<button
 				className="ml-auto p-3"
+			>
+				<Enlarge />
+			</button>
+			<button 
+				className="p-3"
 				onClick={() => {
 					props.setLock(!props.lock)
 				}}
