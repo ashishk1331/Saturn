@@ -8,17 +8,17 @@ export default function Header(props){
 
 	return (
 		<div className="w-full h-flex">
-			<div className="v-flex">
-				<h1 className="text-2xl w-full">{props.id || 'font name'}</h1>
+			<div className="v-flex text-left">
+				<h1 className="text-2xl w-full">{props.id ? props.id.substring(0,12) : 'font name'}</h1>
 				<p className="text-sm w-fit mr-auto">{props.family || 'font family'}</p>
 			</div>
-			<button
+			{/*<button
 				className="ml-auto p-3"
 			>
 				<Enlarge />
-			</button>
+			</button>*/}
 			<button 
-				className="p-3"
+				className="p-3 ml-auto"
 				onClick={() => {
 					props.setLock(!props.lock)
 				}}

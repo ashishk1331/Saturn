@@ -31,7 +31,7 @@ export default function App(props){
             }
             two = await fetchFont(lower.current, randomFont(r, one.id))
             setFontTwo(two)
-        }
+            }
         setIsLoading(false)
     }
 
